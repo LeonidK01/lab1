@@ -35,6 +35,3 @@ parent(zahar,vova).
 parent(zahar,gena).
 parent(katya,vova).
 parent(katya,gena).
-
-man:-man(X),write(X),nl, fail.
-woman:-woman(X),write(X),nl,fail.
