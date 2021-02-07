@@ -51,3 +51,5 @@ b_s(X,Y):-parent(Z,X),woman(Z),parent(Z,Y).
 b_s(X):-b_s(X,Y),dif(X,Y),write(Y),nl,fail.
 grand_pa(X,Y):-father(Z,Y),father(X,Z);mother(Z,Y),father(X,Z).
 grand_pas(X):-grand_pa(Y,X),write(Y),nl,fail.
+grand_so(X,Y):-parent(Z,X),parent(Y,Z),man(X).
+grand_sons(X):-grand_so(Y,X),write(Y),nl,fail.
