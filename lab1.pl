@@ -45,3 +45,5 @@ father(X,Y):-parent(X,Y),man(X).
 father(X):-father(Y,X), write(Y),nl,fail.
 brother(X,Y):-man(X),parent(Z,X),parent(Z,Y).
 brothers(X):-brother(Y,X),dif(X,Y),write(Y),nl,fail.
+sister(X,Y):-woman(X),parent(Z,X),parent(Z,Y).
+sisters(X):-sister(Y,X),dif(X,Y),write(Y),nl,fail.
