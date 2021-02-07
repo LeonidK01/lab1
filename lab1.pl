@@ -55,3 +55,5 @@ grand_so(X,Y):-parent(Z,X),parent(Y,Z),man(X).
 grand_sons(X):-grand_so(Y,X),write(Y),nl,fail.
 grand_pa_and_son(X,Y):-grand_pa(X,Y),man(Y);grand_pa(Y,X),man(X).
 grand_ma_and_son(X,Y):-parent(Z,Y),mother(X,Z),man(Y);parent(Z,X),mother(Y,Z),man(X).
+uncle(X,Y):-parent(Z,Y),brother(X,Z),dif(Z,X).
+uncle_vs(X):-uncle(Y,X),write(Y),nl,fail.
