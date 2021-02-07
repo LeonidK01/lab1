@@ -57,3 +57,5 @@ grand_pa_and_son(X,Y):-grand_pa(X,Y),man(Y);grand_pa(Y,X),man(X).
 grand_ma_and_son(X,Y):-parent(Z,Y),mother(X,Z),man(Y);parent(Z,X),mother(Y,Z),man(X).
 uncle(X,Y):-parent(Z,Y),brother(X,Z),dif(Z,X).
 uncle_vs(X):-uncle(Y,X),write(Y),nl,fail.
+aunt(X,Y):-parent(Z,Y),sister(X,Z),dif(Z,X).
+anut_vs(X):-aunt(Y,X),write(Y),nl,fail.
