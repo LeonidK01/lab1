@@ -8,3 +8,6 @@ fact(N,X):-N1 is N-1,fact(N1,X1),X is X1*N.
 fact(1,Cur_x,Cur_x):-!.
 fact(N,Cur_x,X):-Cur_x1 is Cur_x*N, N1 is N-1, fact(N1,Cur_x1,X).
 factorial(N,X):-fact(N,1,X).
+fib(1,1):-!.
+fib(2,1):-!.
+fib(N,X):-N_1 is N-1,N_2 is N-2,fib(N_1,X_1),fib(N_2,X_2),X is X_1+X_2 .
