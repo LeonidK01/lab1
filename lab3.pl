@@ -11,3 +11,7 @@ factorial(N,X):-fact(N,1,X).
 fib(1,1):-!.
 fib(2,1):-!.
 fib(N,X):-N_1 is N-1,N_2 is N-2,fib(N_1,X_1),fib(N_2,X_2),X is X_1+X_2 .
+fibonach(N,N,X,_,X):-!.
+fibonach(N,N_nac,Xt,Cur_x,X):-N_nac1 is N_nac+1,Xt1 is Xt + Cur_x,fibonach(N,N_nac1,Xt1,Xt,X).
+fib1(N,X):-fibonach(N,1,1,0,X).
+
