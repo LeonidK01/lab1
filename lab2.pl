@@ -45,7 +45,7 @@ gender(beybars,0).
 gender(lancelot,0).
 gender(sid_kampeador,0).
 gender(takeda,0).
-gender(alichi_myndok0).
+gender(alichi_myndok,0).
 gender(syndok,1).
 gender(isida_minachuri,0).
 gender(ganna_dark,1).
@@ -77,7 +77,7 @@ type_troops(beybars,1).
 type_troops(lancelot,1).
 type_troops(sid_kampeador,2).
 type_troops(takeda,1).
-type_troops(alichi_myndok0).
+type_troops(alichi_myndok,0).
 type_troops(syndok,3).
 type_troops(isida_minachuri,3).
 type_troops(ganna_dark,3).
@@ -109,7 +109,7 @@ type_war(beybars,4).
 type_war(lancelot,4).
 type_war(sid_kampeador,1).
 type_war(takeda,3).
-type_war(alichi_myndok0).
+type_war(alichi_myndok,0).
 type_war(syndok,3).
 type_war(isida_minachuri,3).
 type_war(ganna_dark,3).
@@ -141,7 +141,7 @@ rare(beybars,1).
 rare(lancelot,2).
 rare(sid_kampeador,0).
 rare(takeda,0).
-rare(alichi_myndok1).
+rare(alichi_myndok,1).
 rare(syndok,0).
 rare(isida_minachuri,0).
 rare(ganna_dark,1).
@@ -173,7 +173,7 @@ new_and_old(beybars,1).
 new_and_old(lancelot,0).
 new_and_old(sid_kampeador,0).
 new_and_old(takeda,1).
-new_and_old(alichi_myndok0).
+new_and_old(alichi_myndok,0).
 new_and_old(syndok,1).
 new_and_old(isida_minachuri,1).
 new_and_old(ganna_dark,0).
@@ -205,7 +205,7 @@ drop(beybars,0).
 drop(lancelot,0).
 drop(sid_kampeador,0).
 drop(takeda,1).
-drop(alichi_myndok0).
+drop(alichi_myndok,0).
 drop(syndok,0).
 drop(isida_minachuri,0).
 drop(ganna_dark,0).
@@ -237,7 +237,7 @@ popular(beybars,1).
 popular(lancelot,1).
 popular(sid_kampeador,0).
 popular(takeda,1).
-popular(alichi_myndok0).
+popular(alichi_myndok,0).
 popular(syndok,1).
 popular(isida_minachuri,1).
 popular(ganna_dark,1).
@@ -253,3 +253,65 @@ popular(richard_1,0).
 popular(mylan,0).
 popular(edward_vydstok,1).
 popular(li_synsin,1).
+
+question1(X1):- write("Nathion hero?"),nl,
+                    write("0. France"),nl,
+                    write("1. Japan"),nl,
+                    write("2. China"),nl,
+                    write("3. UK"),nl,
+                    write("4. Germany"),nl,
+                    write("5. Arabia"),nl,
+                    write("6. Spain"),nl,
+                    write("7. Korea"),nl,
+                    read(X1).
+
+question2(X2):- write("Gender hero?"),nl,
+                    write("0. man"),nl,
+                    write("1. woman"),nl,
+                    read(X2).
+
+question3(X3):- write("Type troops?"),nl,
+                    write("0. Infantry"),nl,
+                    write("1. Cavalry"),nl,
+                    write("2. Archer"),nl,
+                    write("3. Mixed"),nl,
+                    read(X3).
+
+question4(X4):- write("War style?"),nl,
+                    write("0. Protection of buildings"),nl,
+                    write("1. Field(PVP)"),nl,
+                    write("2. Ôוופסכ שא טדרהגרעןû"),nl,
+                    write("3. Farm resources"),nl,
+                    write("4. Auxiliary"),nl,
+                    write("5. Barbarians"),nl,
+                    read(X4).
+
+question5(X5):- write("Hero old or new(Appearance in the game)?"),nl,
+                    write("0. Old"),nl,
+                    write("1. New"),nl,
+                    read(X5).
+
+question6(X6):- write("Getting a hero?"),nl,
+                    write("0. Chest"),nl,
+                    write("1. Roulette"),nl,
+                    write("2. MP"),nl,
+                    write("3. KVK"),nl,
+                    write("4. Donate"),nl,
+                    read(X6).
+
+question7(X7):- write("Hero popular in game?"),nl,
+                    write("0. No"),nl,
+                    write("1. Yes"),nl,
+                    read(X7).
+
+question8(X8):- write("Rare hero?"),nl,
+                    write("0. Legendary"),nl,
+                    write("1. Epic"),nl,
+                    write("2. elite"),nl,
+                    read(X8).
+
+pr:- question1(X1),question2(X2),question3(X3),question4(X4),question5(X5),
+     question6(X6),question7(X7),question8(X8),
+     nation(X,X1),gender(X,X2),type_troops(X,X3),type_war(X,X4),
+     new_and_old(X,X5),drop(X,X6),popular(X,X7),rare(X,X8),
+     write(X),nl.
