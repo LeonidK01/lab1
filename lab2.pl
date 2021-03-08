@@ -229,7 +229,7 @@ popular(atel,0).
 popular(vilgelm,1).
 popular(sun_cza,0).
 popular(german,0).
-popular(kydynoki,0).
+popular(kydynoki,1).
 popular(boydika,1).
 popular(saladin,1).
 popular(pelailo,0).
