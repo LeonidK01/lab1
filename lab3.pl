@@ -18,3 +18,7 @@ fib1(N,X):-fibonach(N,1,1,0,X).
 sum(X,S):- 0 is X div 10,S=X,!.
 sum(X,S):-X_1 is X div 10,sum(X_1,S_1),S is S_1+X mod 10.
 
+sum1(N,S):-sum1(N,S,0).
+sum1(0,A,A):-!.
+sum1(N,A,Tec):-Tec1 is (N mod 10)+Tec,N1 is (N div 10),sum1(N1,A,Tec1).
+
