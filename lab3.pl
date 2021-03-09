@@ -22,3 +22,5 @@ sum1(N,S):-sum1(N,S,0).
 sum1(0,A,A):-!.
 sum1(N,A,Tec):-Tec1 is (N mod 10)+Tec,N1 is (N div 10),sum1(N1,A,Tec1).
 
+proiz(0,N):-N is 1,!.
+proiz(N,P):-N1 is N div 10,proiz(N1,P1),P is P1*(N mod 10).
