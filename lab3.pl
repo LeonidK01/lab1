@@ -40,4 +40,19 @@ kol_down(0,S,S):-!.
 kol_down(X,S,Pr):-X1 is X mod 10, X1>3, X2 is X1 mod 2, Pr1 is Pr+X2, XZ is X div 10, kol_down(XZ,S,Pr1),!.
 kol_down(X,S,Pr):-XZ is X div 10, kol_down(XZ,S,Pr).
 
+prov(X,N):- X1 is X mod N, X1==0.
+nod(A,B,Otv):-A>B,nod(A,B,B,Otv),!.
+nod(A,B,Otv):-B>A, nod(A,B,A,Otv),!.
+nod(A,B,Del,Otv):-prov(A,Del),prov(B,Del),Otv is Del,!.
+nod(A,B,Del,Otv):-Del_1 is Del-1,nod(A,B,Del_1,Otv).
+
+prost(X):-Del is X div 2,prost(X,Del).
+prost(1,_):-!.
+prost(_,1):-!.
+prost(X,Del):-not(prov(X,Del)), Del1 is Del-1, prost(X,Del1).
+
+kol_del(X,S):-Del is X div 2,kol_del(X,Del,0,S).
+kol_del(_,0,Sum,Sum):-!.
+kol_del(X,Del,Sum,Otv):-prov(X,Del), Sum1 is Sum + 1, Del1 is Del - 1, kol_del(X,Del1,Sum1,Otv),!.
+kol_del(X,Del,Sum,Otv):-Del1 is Del-1,kol_del(X,Del1,Sum,Otv),!.
 
