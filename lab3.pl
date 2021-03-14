@@ -29,11 +29,15 @@ proiz1(N,P):-proiz1(N,P,1).
 proiz1(0,A,A):-!.
 proiz1(N,A,Tec):- Tec1 is (N mod 10)*Tec, N1 is N div 10,proiz1(N1,A,Tec1).
 
-ost(X):-X1 is X mod 10,X1>3,X2 is X1 mod 2 ,X2 \= 0.
-
+ost(X,Y):-X1 is X mod 10,X1>3,X2 is X1 mod 2 ,X2 \= 0, Y is 1.
+ost(_,Y):-Y is 0,!.
 
 kol_up(0,0):-!.
-kol_up(N,X):-N1 is N div 10, kol_up(N1,X1), ost(N) ,X is X1+1.
+kol_up(N,X):-N1 is N div 10, kol_up(N1,X1), ost(N,Y), X is X1+Y,!.
 
+kol_down(X,N):-kol_down(X,N,0).
+kol_down(0,S,S):-!.
+kol_down(X,S,Pr):-X1 is X mod 10, X1>3, X2 is X1 mod 2, Pr1 is Pr+X2, XZ is X div 10, kol_down(XZ,S,Pr1),!.
+kol_down(X,S,Pr):-XZ is X div 10, kol_down(XZ,S,Pr).
 
 
