@@ -34,3 +34,6 @@ min_list_down([H|T],Temp,Min):-H<Temp,min_list_down(T,H,Min),!.
 min_list_down([_|T],Temp,Min):-min_list_down(T,Temp,Min).
 
 min_all:-write("Введите количество элементов"),nl,read(N),nl,read_list(N,X),nl, min_list_up(X,Min),write(Min).
+
+prov_el([El|_],El):-!.
+prov_el([_|T], El):-prov_el(T, El).
