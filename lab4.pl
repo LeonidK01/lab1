@@ -37,3 +37,7 @@ min_all:-write("Введите количество элементов"),nl,read(N),nl,read_list(N,X),nl, 
 
 prov_el([El|_],El):-!.
 prov_el([_|T], El):-prov_el(T, El).
+
+zam(List,List1):-zam(List,[],List1).
+zam([],List1,List1).
+zam([H|List],Temp,List1):-zam(List,[H|Temp],List1).
