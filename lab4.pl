@@ -16,3 +16,6 @@ sum_list_up([H|T],Sum):-sum_list_up(T,Sum1),Sum is Sum1+H.
 list_el_numb(List,Elem,Num):-list_el_numb(List,Elem,0,Num).
 list_el_numb([H|_],H,Num,Num):-!.
 list_el_numb([_|T],Elem,Pos,Num):-Pos1 is Pos+1,list_el_numb(T,Elem,Pos1,Num).
+
+prov4_2:-write("Количество элементов"),nl,read(N),nl,read_list(N,X), nl,write("Введите Элемент"),nl,read(Elem),list_el_numb(X,Elem,Num),write(Num).
+prov4_2:-write("Нет элемента").
