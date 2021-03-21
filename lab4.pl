@@ -23,5 +23,11 @@ prov4_2:-write("Нет элемента").
 prov5:-write("Количество элементов"),nl,read(N),nl,read_list(N,X), nl,write("Введите Номер"),nl,read(Num),list_el_numb(X,Elem,Num),write(Elem).
 prov5:-write("Ошибка").
 
+min(X,Y,X):-X<Y,!.
+min(_,Y,Y):-!.
+
+min_list_up([H],H):-!.
+min_list_up([H|T],Min):-min_list_up(T,Min1),min(H,Min1,Min).
+
 
 
