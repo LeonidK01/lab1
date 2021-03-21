@@ -6,6 +6,8 @@ man(zahar).
 man(artem).
 man(vova).
 man(gena).
+man(bartameo).
+man(losyk).
 
 
 woman(sveta).
@@ -14,9 +16,13 @@ woman(polina).
 woman(masha).
 woman(katya).
 woman(dasha).
+woman(ifrosinya).
+woman(aleftina).
 
 parent(akakii,masha).
 parent(sveta,masha).
+parent(akakii,ifrosinya).
+parent(sveta,ifrosinya).
 
 parent(genya,petya).
 parent(genya,zahar).
@@ -25,6 +31,8 @@ parent(ksyha,zahar).
 
 parent(arsenya,katya).
 parent(polina,katya).
+parent(arsenya,bartameo).
+parent(polina,bartameo).
 
 parent(petya,artem).
 parent(petya,dasha).
@@ -35,6 +43,11 @@ parent(zahar,vova).
 parent(zahar,gena).
 parent(katya,vova).
 parent(katya,gena).
+
+parent(ifrosinya,aleftina).
+parent(ifrosinya,losyk).
+parent(bartameo,aleftina).
+parent(bartameo,losyk).
 
 man:-man(X),write(X),nl, fail.
 woman:-woman(X),write(X),nl,fail.
