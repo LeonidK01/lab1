@@ -12,3 +12,7 @@ sum_list_down([Head|Tail],S,Sum):-S1 is S+Head,sum_list_down(Tail,S1,Sum).
 
 sum_list_up([],0):-!.
 sum_list_up([H|T],Sum):-sum_list_up(T,Sum1),Sum is Sum1+H.
+
+list_el_numb(List,Elem,Num):-list_el_numb(List,Elem,0,Num).
+list_el_numb([H|_],H,Num,Num):-!.
+list_el_numb([_|T],Elem,Pos,Num):-Pos1 is Pos+1,list_el_numb(T,Elem,Pos1,Num).
