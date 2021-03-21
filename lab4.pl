@@ -9,3 +9,6 @@ sum_list_downn(N,Sum):-read_list(N,X),sum_list_down(X,Sum).
 sum_list_down(List,Sum):-sum_list_down(List,0,Sum).
 sum_list_down([],Sum,Sum):-!.
 sum_list_down([Head|Tail],S,Sum):-S1 is S+Head,sum_list_down(Tail,S1,Sum).
+
+sum_list_up([],0):-!.
+sum_list_up([H|T],Sum):-sum_list_up(T,Sum1),Sum is Sum1+H.
