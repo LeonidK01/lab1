@@ -64,3 +64,7 @@ kol(List,X,C):-kol(List,X,0,C).
 kol([],_,C,C):-!.
 kol([H|T],X,C,C2):-H==X, C1 is C + 1,kol(T,X,C1,C2),!.
 kol([_|T],X,C,C2):-kol(T,X,C,C2),!.
+
+dlina(List,Sum):-dlina(List,Sum,0).
+dlina([],Sum,Sum):-!.
+dlina([_|T],Sum,Dl):-Dl1 is Dl+1,dlina(T,Sum,Dl1).
