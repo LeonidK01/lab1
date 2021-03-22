@@ -89,3 +89,8 @@ chet(List,Kol):-chet(List,Kol,0).
 chet([],Kol,Kol):-!.
 chet([H|T],Kol,Kolvo):- X1 is H mod 2, X1==0, Kolvo1 is Kolvo+1,chet(T,Kol,Kolvo1),!.
 chet([_|T],Kol,Kolvo):-chet(T,Kol,Kolvo),!.
+
+otr([],_,_):-!.
+otr([H|T],A,B):-A=<H,H=<B,write(H),nl,otr(T,A,B),! .
+otr([_|T],A,B):-otr(T,A,B),!.
+
