@@ -77,3 +77,5 @@ min_list_down1([_|T],Min,Elem):-min_list_down1(T,Min,Elem).
 min_list_down1([],Min,Min,_):-!.
 min_list_down1([H|T],Temp,Min,Elem):-H<Temp,not(H==Elem),min_list_down1(T,H,Min,Elem),!.
 min_list_down1([_|T],Temp,Min,Elem):-min_list_down1(T,Temp,Min,Elem).
+
+min_elem(List,Kol):-min_list_down(List,Elem),kol(List,Elem,Kol).
