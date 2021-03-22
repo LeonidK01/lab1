@@ -84,3 +84,8 @@ sosed_left(List,Kol):-sosed_left(List,0,0,Kol).
 sosed_left([],_,Kol,Kol):-!.
 sosed_left([A,B|T],Cout, Kolvo,Kol):-A>B,Count1 is Cout+1,Kolvo1 is Kolvo + 1,write(Count1),sosed_left(T,Count1,Kolvo1,Kol),!.
 sosed_left([_|T],Cout,Kolvo,Kol):-Cout1 is Cout+1,sosed_left(T,Cout1,Kolvo,Kol),!.
+
+chet(List,Kol):-chet(List,Kol,0).
+chet([],Kol,Kol):-!.
+chet([H|T],Kol,Kolvo):- X1 is H mod 2, X1==0, Kolvo1 is Kolvo+1,chet(T,Kol,Kolvo1),!.
+chet([_|T],Kol,Kolvo):-chet(T,Kol,Kolvo),!.
