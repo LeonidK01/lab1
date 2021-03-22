@@ -59,3 +59,8 @@ chek([]):-!.
 unik([],[]):-!.
 unik([H|T],T1):-prov_el(T,H),unik(T,T1),!.
 unik([H|T],[H|T1]):-unik(T,T1),!.
+
+kol(List,X,C):-kol(List,X,0,C).
+kol([],_,C,C):-!.
+kol([H|T],X,C,C2):-H==X, C1 is C + 1,kol(T,X,C1,C2),!.
+kol([_|T],X,C,C2):-kol(T,X,C,C2),!.
