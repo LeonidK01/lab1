@@ -57,7 +57,7 @@ chek(X,[H|T]):- X\= H,chek(X,T).
 chek([]):-!.
 
 unik([],[]):-!.
-unik([H|T],T1):-prov_el(T,H),unik(T,T1),!.
+lunik([H|T],T1):-prov_el(T,H),unik(T,T1),!.
 unik([H|T],[H|T1]):-unik(T,T1),!.
 
 kol(List,X,C):-kol(List,X,0,C).
@@ -68,3 +68,12 @@ kol([_|T],X,C,C2):-kol(T,X,C,C2),!.
 dlina(List,Sum):-dlina(List,Sum,0).
 dlina([],Sum,Sum):-!.
 dlina([_|T],Sum,Dl):-Dl1 is Dl+1,dlina(T,Sum,Dl1).
+
+
+ind_min(List,Ind1,Ind2):-min_list_down(List,Elem),list_el_numb(List,Elem,Index),Ind1 is Index, min_list_down1(List,Elem1,Elem),list_el_numb(List,Elem1,Index1),Ind2 is Index1,!.
+min_list_down1([H|T],Min,Elem):-H\=Elem,min_list_down1(T,H,Min,Elem).
+min_list_down1([_|T],Min,Elem):-min_list_down1(T,Min,Elem).
+
+min_list_down1([],Min,Min,_):-!.
+min_list_down1([H|T],Temp,Min,Elem):-H<Temp,not(H==Elem),min_list_down1(T,H,Min,Elem),!.
+min_list_down1([_|T],Temp,Min,Elem):-min_list_down1(T,Temp,Min,Elem).
