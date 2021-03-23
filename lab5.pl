@@ -84,3 +84,15 @@ not(in_list(Friend,[valya,_,white])),
 not(in_list(Friend,[natasha,green,_])),
 write(Friend).
 
+pr_work:-Worker=[_,_,_],
+    in_list(Worker,[ivanov,_,_,_]),
+    in_list(Worker,[semenov,_,_,_]),
+    in_list(Worker,[_,tokar,_,_]),
+    in_list(Worker,[_,svarshik,_,_]),
+    in_list(Worker,[_,_,_,2]),
+    in_list(Worker,[_,_,_,3]),
+    in_list(Worker,[_,slesar,[],1]),
+    in_list(Worker,[borisov,_,[sister],_]),
+    in_list(Worker,[semenov,_,_,N1]),
+    in_list(Worker,[_,tokar,_,N2]),N1>N2,
+write(Worker),!.
