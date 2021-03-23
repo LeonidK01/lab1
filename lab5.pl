@@ -64,3 +64,23 @@ not(in_list(Friend,[belokurov,dark-haired])),
 (in_list(Friend,[chernov,blonde]);in_list(Friend,[chernov, red])),
 
 write(Friend).
+
+pr_girl:-
+Friend=[_,_,_],
+in_list(Friend,[_,white,_]),
+in_list(Friend,[_,green,_]),
+in_list(Friend,[_,blue,_]),
+in_list(Friend,[_,_,white]),
+in_list(Friend,[_,_,green]),
+in_list(Friend,[_,_,blue]),
+
+in_list(Friend,[ann,_,_]),
+in_list(Friend,[natasha,_,green]),
+in_list(Friend,[valya,_,_]),
+
+(in_list(Friend,[ann,white,white]);in_list(Friend,[ann,blue,blue]);in_list(Friend,[ann,green,green])),
+not(in_list(Friend,[valya,white,_])),
+not(in_list(Friend,[valya,_,white])),
+not(in_list(Friend,[natasha,green,_])),
+write(Friend).
+
