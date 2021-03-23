@@ -48,3 +48,19 @@ pr_ein:- Houses=[_,_,_,_,_],
 		in_list(Houses,[_,WHO2,_,zebra,_]),
 		write(Houses),
 		write(WHO1),nl,write(WHO2).
+
+pr_friends:-
+Friend=[_,_,_],
+in_list(Friend,[belokurov,_]),
+in_list(Friend,[ryzhov,_]),
+in_list(Friend,[chernov,_]),
+in_list(Friend,[_,red]),
+in_list(Friend,[_,blonde]),
+in_list(Friend,[_,dark-haired]),
+
+not(in_list(Friend,[belokurov, blonde])),
+not(in_list(Friend,[belokurov,dark-haired])),
+(in_list(Friend,[ryzhov, dark-haired]);in_list(Friend,[ryzhov,blondin])),
+(in_list(Friend,[chernov,blonde]);in_list(Friend,[chernov, red])),
+
+write(Friend).
