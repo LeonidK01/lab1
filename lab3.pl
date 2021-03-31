@@ -56,3 +56,9 @@ kol_del(_,0,Sum,Sum):-!.
 kol_del(X,Del,Sum,Otv):-prov(X,Del), Sum1 is Sum + 1, Del1 is Del - 1, kol_del(X,Del1,Sum1,Otv),!.
 kol_del(X,Del,Sum,Otv):-Del1 is Del-1,kol_del(X,Del1,Sum,Otv),!.
 
+prov_del(X,Y):-X1 is X mod Y,X1==0.
+sum_del(X,Otv):-Del is X div 2,sum_del(X,Del,0,Otv).
+sum_del(_,0,Otv,Otv):-!.
+sum_del(X,Del,Proiz,Otv):-prov_del(X,Del),prost(Del), Proiz1 is Proiz+Del,Del1 is Del-1,sum_del(X,Del1,Proiz1,Otv),!.
+sum_del(X,Del,Proiz,Otv):-Del1 is Del-1,sum_del(X,Del1,Proiz,Otv),!.
+
