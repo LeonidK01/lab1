@@ -62,3 +62,10 @@ sum_del(_,0,Otv,Otv):-!.
 sum_del(X,Del,Proiz,Otv):-prov_del(X,Del),prost(Del), Proiz1 is Proiz+Del,Del1 is Del-1,sum_del(X,Del1,Proiz1,Otv),!.
 sum_del(X,Del,Proiz,Otv):-Del1 is Del-1,sum_del(X,Del1,Proiz,Otv),!.
 
+proiz_del(X,P):-sum(X,Y), Del is X div 2, proiz_del(X,Del,P,Y,1).
+proiz_del(_,0,Otv,_,Otv):-!.
+proiz_del(X,Del,Otv,Sum,Proiz):-prov_del(X,Del), sum(Del,Y), Sum>Y, Proiz1 is Proiz*Del, Del1 is Del -1,proiz_del(X,Del1,Otv,Sum,Proiz1),!.
+proiz_del(X,Del,Otv,Sum,Proiz):-Del1 is Del-1, proiz_del(X,Del1,Otv,Sum,Proiz),!.
+
+
+
