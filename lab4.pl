@@ -96,4 +96,6 @@ otr([_|T],A,B):-otr(T,A,B),!.
 
 sdvig_2([H,H1|T],List1):-append1([H,H1],X,[H,H1|T]),append1(X,[H,H1],List1).
 
+sdvig_1([H|T],List):-append1([H],X,[H|T]),append1(X,[H],List).
+
 
