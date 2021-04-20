@@ -11,7 +11,7 @@ r_str(X,A,B,N,K):-K1 is K+1,append(B,[X],B1),get0(X1),r_str(X1,A,B1,N,K1).
 p1:- read_str(List,Length), write_str(List), write(", "), write_str(List),
 	write(", "), write_str(List), nl, write("Length = "), write(Length).
 
-pr5_2:-read_str(A,N),count_words(A,K),write(K).
+pr2:-read_str(A,N),count_words(A,K),write(K).
 
 count_words(A,K):-count_words(A,0,K).
 
@@ -40,7 +40,7 @@ get_words(A,Temp_words,B,I,K):-
 	I1 is I+1,append(Temp_words,[Word],T_w),get_words(A2,T_w,B,I1,K),!.
 get_words(_,B,B,K,K).
 
-pr5_3:-read_str(A,N),get_words(A,Words,K),unique_elems(Words,U_words),
+pr3:-read_str(A,N),get_words(A,Words,K),unique_elems(Words,U_words),
 		counts(U_words,C,Words),indOfMax(C,Ind),el_by_number(U_words,Ind,El),
 		write_str(El).
 counts([],[],_):-!.
@@ -76,3 +76,13 @@ el_by_number(A,Ind,El):-el_by_number(A,1,Ind,El).
 el_by_number([],_,_,nil):-!.
 el_by_number([El|_],Ind,Ind,El):-!.
 el_by_number([_|T],I,Ind,El):-I1 is I+1,el_by_number(T,I1,Ind,El).
+
+pr4:- read_str([H|T],L), (L>5 -> pr_l([H|T],0,L); pr_r(H,L)).
+
+pr_l([],_,_):-!.
+pr_l([H|T],I,L):- I<3, write_str([H]), I1 is I+1, pr_l(T,I1,L),!.
+pr_l([H|T],I,L):- M is L-I, M<4, write_str([H]), I1 is I+1, pr_l(T,I1,L),!.
+pr_l([_|T],I,L):- I1 is I+1, pr_l(T,I1,L).
+
+pr_r(_,0):-!.
+pr_r(H,L):- write_str([H]), L1 is L-1, pr_r(H,L1).
