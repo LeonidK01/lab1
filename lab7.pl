@@ -154,3 +154,8 @@ pr14:-read_str(St,_),pr14(St,0,Kol),write(Kol).
 pr14([],K,K):-!.
 pr14([H|T],K,Kol):-H>47,H<58,K1 is K+1,pr14(T,K1,Kol),!.
 pr14([_|T],K,Kol):-pr14(T,K,Kol),!.
+
+pr15:-read_str(Str,_),pr15(Str).
+pr15([]):-!.
+pr15([H|_]):-H\=97,H\=98,H\=99,!,fail.
+pr15([_|T]):-pr15(T).
