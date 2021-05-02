@@ -176,3 +176,9 @@ pr18:- read_str(List,_), pr18(List,L), write_str(L).
 pr18([],[]):-!.
 pr18([97,98,99,H|T1],[H|T2]):- H>=48, H=<57, pr18(T1,T2),!.
 pr18([H|T1],[H|T2]):- pr18(T1,T2).
+
+pr19:- read_str(List,_), pr19(List,0,C), write("Количество = "), write(C).
+
+pr19([],I,I):-!.
+pr19([97,98,97|T],I,C):- I1 is I+1, pr19(T,I1,C),!.
+pr19([_|T],I,C):- pr19(T,I,C).
