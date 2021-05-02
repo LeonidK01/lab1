@@ -171,3 +171,8 @@ pr17:-read_str(St,_),delete_abc(St,[],NL),write_str(NL).
 delete_abc([],NL,NL):-!.
 delete_abc([120,97,98,99|T],Buffer,NL):-append_list(Buffer,[97,98,99],BufferN),delete_abc(T,BufferN,NL),!.
 delete_abc([H|T],Buffer,NL):-append_list(Buffer,[H],BufferN),delete_abc(T,BufferN,NL).
+
+pr18:- read_str(List,_), pr18(List,L), write_str(L).
+pr18([],[]):-!.
+pr18([97,98,99,H|T1],[H|T2]):- H>=48, H=<57, pr18(T1,T2),!.
+pr18([H|T1],[H|T2]):- pr18(T1,T2).
