@@ -18,6 +18,10 @@ put_letter([_|T],Letter_positions,I,L):- I1 is I+1, put_letter(T,Letter_position
 put_free([H|_],L):- var(H), H = L,!.
 put_free([_|T],L):- put_free(T,L),!.
 
+del_sub(T,[],T):-!.
+del_sub([H|T1],[H|T2],List):- del_sub(T1,T2,List),!.
+del_sub([H|T1],List,[H|T3]):- del_sub(T1,List,T3).
+
 pr1_1:- tell('D:/Универ/Функ и лог прог/lab1/Вывод.txt'),not( build_all_razm_p),told.
 build_all_razm_p:- read_str(A,_), read(K), b_a_rp(A,K,[]).
 
@@ -83,7 +87,15 @@ pre4:- Pos = [0,1,2,3,4], Rez = [_,_,_,_,_],
 	in_list(A3,El4), put_free(Rez,El4),
 	write_list(Rez), nl, fail.
 
-
+pr5:- tell('D:/Универ/Функ и лог прог/lab1/Вывод.txt'),not(pre5), told.
+pre5:- Pos = [0,1,2,3,4,5], Rez = [_,_,_,_,_,_],
+	sochet([El1,El2],2,[a,b,c,d,e,f]), del_sub([a,b,c,d,e,f],[El1,El2],A1),
+	sochet(L1_pos,2,Pos), put_letter(Rez,L1_pos,0,El1),
+	del_sub(Pos,L1_pos,Poss),
+	sochet(L2_pos,2,Poss), put_letter(Rez,L2_pos,0,El2),
+	in_list_exlude(A1,El3,A2), put_free(Rez,El3),
+	in_list(A2,El4), put_free(Rez,El4),
+	write_list(Rez), nl, fail.
 
 
 
