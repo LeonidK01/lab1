@@ -66,7 +66,13 @@ pre2:- Pos = [0,1,2,3,4], Rez = [_,_,_,_,_],
 	in_list([b,c,d,e,f],El3), put_free(Rez,El3),
 	write_list(Rez), nl, fail.
 
-
+pr3:- tell('D:/Универ/Функ и лог прог/lab1/Вывод.txt'),not(pre3), told.
+pre3:- Pos= [0,1,2,3,4], Rez = [_,_,_,_,_],
+	sochet(A_pos,2,Pos), put_letter(Rez,A_pos,0,a),
+	in_list_exlude([b,c,d,e,f],El1,A1), put_free(Rez,El1),
+	in_list_exlude(A1,El2,A2), put_free(Rez,El2),
+	in_list(A2,El3), put_free(Rez,El3),
+	write_list(Rez), nl, fail.
 
 
 
