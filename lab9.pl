@@ -11,6 +11,13 @@ write_list([Head|Tail]):- write(Head), write_list(Tail).
 write_str([]):-!.
 write_str([H|Tail]):- put(H), write_str(Tail).
 
+put_letter(_,[],_,_):-!.
+put_letter([H|T1],[I|T2],I,H):- I1 is I+1, put_letter(T1,T2,I1,H),!.
+put_letter([_|T],Letter_positions,I,L):- I1 is I+1, put_letter(T,Letter_positions,I1,L).
+
+put_free([H|_],L):- var(H), H = L,!.
+put_free([_|T],L):- put_free(T,L),!.
+
 pr1_1:- tell('D:/Универ/Функ и лог прог/lab1/Вывод.txt'),not( build_all_razm_p),told.
 build_all_razm_p:- read_str(A,_), read(K), b_a_rp(A,K,[]).
 
@@ -50,3 +57,21 @@ sochet_pov:- read_str(A,_), read(K), sochet_pov(B,K,A), write_str(B), nl, fail.
 sochet_pov([],0,_):-!.
 sochet_pov([H|Sub_set],K,[H|Set]):- K1 is K-1, sochet_pov(Sub_set,K1,[H|Set]).
 sochet_pov(Sub_set,K,[_|Set]):- sochet_pov(Sub_set,K,Set).
+
+pr2:- tell('D:/Универ/Функ и лог прог/lab1/Вывод.txt'),not(pre2), told.
+pre2:- Pos = [0,1,2,3,4], Rez = [_,_,_,_,_],
+	sochet(A_pos,2,Pos), put_letter(Rez,A_pos,0,a),
+	in_list([b,c,d,e,f],El1), put_free(Rez,El1),
+	in_list([b,c,d,e,f],El2), put_free(Rez,El2),
+	in_list([b,c,d,e,f],El3), put_free(Rez,El3),
+	write_list(Rez), nl, fail.
+
+
+
+
+
+
+
+
+
+
