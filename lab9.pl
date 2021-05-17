@@ -121,6 +121,11 @@ pre7:- Pos = [0,1,2,3,4,5,6,7,8], Rez = [_,_,_,_,_,_,_,_,_],
 	in_list(A3,El5), put_free(Rez,El5),
 	write_list(Rez), nl, fail.
 
+pr8:- tell('D:/Универ/Функ и лог прог/lab1/Вывод.txt'),not( pre8), told.
+pre8:- Pos = [0,1,2,3], Rez = [_,_,_,_], P = [3,4], in_list_exlude(P,A,_),
+	sochet(A_pos,A,Pos), put_letter(Rez,A_pos,0,a),
+	(A = 3 -> in_list([b,c,d,e,f],El), put_free(Rez,El); true),
+	write_list(Rez), nl, fail.
 
 
 
