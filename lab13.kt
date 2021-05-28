@@ -72,3 +72,26 @@ fun main() {
     println("min = $min")
     println("Произведение = $proi")
 }
+//задание 8.1
+fun prost(x:Int):Boolean {
+    for (i in 2..x / 2) {
+        if (x % i == 0) {
+            return false
+        }
+    }
+    return true;
+}
+fun sumProstDel(x:Int):Int{
+    var sum=0
+    for(i in 2..x/2){
+        if(x%i==0 && prost(i)){
+            sum+=i}
+    }
+    return sum
+}
+fun main() {
+    println("Введите число")
+    val x = readLine()!!.toInt()
+    print("Сумма простых делителей числа ")
+    println(sumProstDel(x))
+}
