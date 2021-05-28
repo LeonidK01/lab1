@@ -142,3 +142,72 @@ fun main() {
     print("Ответ =")
     println(proizDel(x))
 }
+//9
+fun prost(x:Int):Boolean {
+    for (i in 2..x / 2) {
+        if (x % i == 0) {
+            return false
+        }
+    }
+    return true;
+}
+fun sumProstDel(x:Int):Int{
+    var sum=0
+    for(i in 2..x/2){
+        if(x%i==0 && prost(i)){
+            sum+=i}
+    }
+    return sum
+}
+fun nechet3(x:Int):Int{
+    var sum=0
+    var x1: Int = x
+    while (x1 != 0)
+    {
+        if (x1 % 10 > 3 && (x1 % 10) % 2 != 0)
+            sum += 1
+
+        x1 /= 10
+    }
+    return  sum
+}
+fun sum(x: Int): Int {
+    var sum = 0
+    var x1: Int = x
+    while (x1 != 0) {
+        sum += x1 % 10
+        x1 /= 10
+    }
+    return (sum)
+}
+fun proizDel(x:Int):Int{
+    var proiz = 1
+    var sumX = sum(x)
+    for(i in 2..x) {
+        if (x % i == 0) {
+            val sumI = sum(i)
+            if(sumI<sumX)
+                proiz *= sumI
+        }
+    }
+    return proiz
+}
+fun main() {
+    println("\"Выбирете операцию:\n 1. Найти сумму простых делителей числа.\n 2.Найти количество нечетных цифр числа, больших 3 \n" +
+            " 3.Найти прозведение таких делителей числа, сумма цифр которых меньше, чем сумма цифр исходного числа. \n 4. Выйте")
+    var vib = readLine()!!.toInt()
+    while(vib!=4)
+    {
+        when(vib)
+        {
+            1 -> println(sumProstDel(readLine()!!.toInt()))
+            2 -> println(nechet3(readLine()!!.toInt()))
+            3 -> println(proizDel(readLine()!!.toInt()))
+            else -> println("Ошибка")
+        }
+        println("\"Выбирете операцию:\n 1. Найти сумму простых делителей числа.\n 2. Найти количество нечетных цифр числа, больших 3 \n" +
+                " 3. Найти прозведение таких делителей числа, сумма цифр которых меньше, чем сумма цифр исходного числа. \n 4. Выйте")
+
+        vib=readLine()!!.toInt()
+    }
+}
