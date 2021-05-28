@@ -114,3 +114,31 @@ fun main() {
     print("Сумма цифр числа ")
     println(nechet3(x))
 }
+//задание 8.3
+fun sum(x: Int): Int {
+    var sum = 0
+    var x1: Int = x
+    while (x1 != 0) {
+        sum += x1 % 10
+        x1 /= 10
+    }
+    return (sum)
+}
+fun proizDel(x:Int):Int{
+    var proiz = 1
+    var sumX = sum(x)
+    for(i in 2..x) {
+        if (x % i == 0) {
+            val sumI = sum(i)
+            if(sumI<sumX)
+                proiz *= sumI
+        }
+    }
+    return proiz
+}
+fun main() {
+    println("Введите число")
+    val x = readLine()!!.toInt()
+    print("Ответ =")
+    println(proizDel(x))
+}
