@@ -95,3 +95,22 @@ fun main() {
     print("Сумма простых делителей числа ")
     println(sumProstDel(x))
 }
+// задание 8.2
+fun nechet3(x:Int):Int{
+    var sum=0
+    var x1: Int = x
+    while (x1 != 0)
+    {
+        if (x1 % 10 > 3 && (x1 % 10) % 2 != 0)
+            sum += 1
+
+        x1 /= 10
+    }
+    return  sum
+}
+fun main() {
+    println("Введите число")
+    val x = readLine()!!.toInt()
+    print("Сумма цифр числа ")
+    println(nechet3(x))
+}
